@@ -25,14 +25,13 @@
 		<property name="extensionName" value="jmxClient" />
 		<property name="alfrescoMBeanServer" ref="alfrescoMBeanServer" />
 	</bean>
-
+<!--
 	<bean id="solrScriptFacade" parent="baseJavaScriptExtension"
 		class="de.jgoldhammer.alfresco.jscript.solr.SolrScriptFacade">
 		<property name="extensionName" value="solr" />
 		<property name="solrIndexCheckService" ref="search.solrIndexCheckService" />
 	</bean>
-
-
+-->
 	<bean id="jobScriptFacade" parent="baseJavaScriptExtension"
 		class="de.jgoldhammer.alfresco.jscript.jobs.JobsScriptFacade" init-method="init">
 		<property name="extensionName" value="jobs" />
@@ -46,6 +45,11 @@
 		<property name="searchService" ref="SearchService" />
 		<property name="scriptService" ref="ScriptService" />
 		<property name="serviceRegistry" ref="ServiceRegistry" />
+	</bean>
+
+	<bean id="scriptDatabase" parent="baseJavaScriptExtension"
+		class="de.jgoldhammer.alfresco.jscript.db.ScriptDatabaseService">
+		<property name="extensionName" value="database" />
 	</bean>
 
 </beans>
